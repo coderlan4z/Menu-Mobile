@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="assets/index.css">
+        <link rel="stylesheet" href="assets/index.js">
+        <script src="https://kit.fontawesome.com/a33a8d6d19.js" crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500;600;700&display=swap" rel="stylesheet">
+        <title>Menu Digital Jurassick Pork</title>
+</head>
+<body>
+        <header>
+                <div class="logo">
+                        <img src="img/logo.png" alt="">
+                </div>
+                <div class="search">
+                        <input type="search" id="site-search" name="q" placeholder="Pesquise seu prato aqui...">
+                        <button id="search-button"><i class="fa-solid fa-magnifying-glass" style="color: black;"></i></button> 
+                </div>
+        </header>
+        <main>
+                <div onclick="redirecionarParaDetalhes(id)" class="products">
+                        <div class="principal">
+                                <h1>Pratos Principais</h1>
+                        </div>
+                        <div class="product-principal">
+                                <h2 id="title"></h2>
+                                <h3 id="description"></h3>
+                                <h4 id="price"></h4>
+                                <img id="product-image" src="" alt="">
+                        </div>
+                        
+
+                </div>
+        </main>
+
+
+
+        <script src="assets/index.js"></script>
+        
+</body>
+</html>
