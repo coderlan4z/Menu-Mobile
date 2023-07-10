@@ -26,9 +26,6 @@ main{
         right: 1.2rem;
         top: 1.2rem;
 }
-.cart .clicked{
-        transform: scale(1.05);
-}
 .cart i:active {
         background-color: #dcd94a;
 }
