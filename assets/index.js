@@ -132,12 +132,12 @@ document.addEventListener("DOMContentLoaded", function() {
       productContainer.dataset.productId = produto.id;
   
       var title = document.createElement("h2");
-      var truncatedTitle = produto.title.length > 20 ? produto.title.slice(0, 20) + '' : produto.title;
+      var truncatedTitle = produto.title.length > 20 ? produto.title.slice(0, 18) + '' : produto.title;
       title.textContent = truncatedTitle;
       productContainer.appendChild(title);
   
       var description = document.createElement("h3");
-      var truncatedDescription = produto.description.length > 22 ? produto.description.slice(0, 22) + '...' : produto.description;
+      var truncatedDescription = produto.description.length > 20 ? produto.description.slice(0, 18) + '...' : produto.description;
       description.textContent = truncatedDescription;
       productContainer.appendChild(description);
   

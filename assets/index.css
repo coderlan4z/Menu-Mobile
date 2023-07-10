@@ -12,7 +12,7 @@ main{
 }
 .cart button{
         background-color: #f6f368;
-        padding: .8rem 1rem;
+        padding: .8rem 1.05rem;
         border-radius: 50%;
         box-shadow: 2px 4px 5px rgba(255, 255, 255, 0.2);
         font-size: 1.5rem;
@@ -133,7 +133,7 @@ footer a{
 }
       
 @media screen and (min-width: 768px) {
-        html{
+        body{
                 max-width: 768px;
                 margin: auto;
         }
