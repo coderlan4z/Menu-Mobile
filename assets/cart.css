@@ -81,9 +81,9 @@ h6{
 .arrow a{
         text-decoration: none;
         color: rgb(0, 0, 0);
-        animation: none;
+        border-radius: 50%;
 }
-.arrow i:active {
+.arrow :active {
         background-color: #dcd94a;
 }
 .quantidade{
