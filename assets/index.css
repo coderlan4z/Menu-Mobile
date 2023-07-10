@@ -31,6 +31,30 @@ main{
 .cart button:active {
         background-color: #dcd94a;
 }
+.sociais{
+        position: absolute;
+        top: 21.5rem;
+        z-index: 1;
+        margin: 0 1.15rem;
+}
+.sociais a{
+        text-decoration: none;
+        margin: 0 .2rem;
+}
+.fa-instagram, .fa-whatsapp{
+        color: #f6f368;
+        border: 1px solid #f6f4683b;
+        padding: .6rem .75rem .55rem;
+        border-radius: 10%;
+        font-size: 1.1rem;
+}
+.fa-facebook{
+        color: #f6f368;
+        border: 1px solid #f6f4683b;
+        padding: .6rem .85rem .55rem ;
+        font-size: 1.1rem;
+        border-radius: 10%;
+}
 .search{
         position: relative;
         top: -2.3rem;
