@@ -25,16 +25,23 @@
     <div class="product">
       <h2 id="title"></h2>
       <h3 id="description"></h3>
-      <h4 id="price"></h4>
-      <div class="quantity-selector">
-        <button onclick="decrementarQuantidade()"><i class="fa-solid fa-minus"></i></button>
-        <span id="quantity">1</span>
-        <button onclick="incrementarQuantidade()"><i class="fa-solid fa-plus"></i></button>
-        <a href="index.html"><button onclick="adicionarAoCarrinho()" id="add-to-cart">Adicionar ao carrinho</button></a>
-      </div>
     </div>
-
   </main>
+
+  <footer>
+    <div class="select">
+
+    </div>
+    <div class="quantidade">
+      <button onclick="decrementarQuantidade()"><i class="fa-solid fa-minus"></i></button>
+      <span id="quantity">1</span>
+      <button onclick="incrementarQuantidade()"><i class="fa-solid fa-plus"></i></button>
+    </div>
+      <div class="add">
+        <a href="index.html"><button onclick="adicionarAoCarrinho()" id="add-to-cart">Adicionar</button></a>
+      </div>
+    
+  </footer>
 
   <script src="assets/data.js"></script>
   <script src="assets/detail.js"></script>

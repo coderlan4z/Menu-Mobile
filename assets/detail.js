@@ -15,14 +15,31 @@ document.addEventListener("DOMContentLoaded", function() {
   function incrementarQuantidade() {
     quantidade++;
     atualizarQuantidade();
-  }
-  
-  function decrementarQuantidade() {
+    atualizarPreco();
+}
+
+function decrementarQuantidade() {
     if (quantidade > 1) {
-      quantidade--;
-      atualizarQuantidade();
+        quantidade--;
+        atualizarQuantidade();
+        atualizarPreco();
     }
+}
+
+function atualizarPreco() {
+  var quantidadeInput = document.getElementById("quantity");
+  var quantidade = parseInt(quantidadeInput.textContent);
+  var addToCartButton = document.getElementById("add-to-cart");
+  var productId = new URLSearchParams(window.location.search).get("id");
+  var produto = encontrarProdutoPorId(productId);
+
+  if (produto) {
+    var precoTotal = produto.price * quantidade;
+    addToCartButton.textContent = "Adicionar - R$ " + precoTotal.toFixed(2);
   }
+}
+
+
   
   function atualizarQuantidade() {
     document.getElementById('quantity').textContent = quantidade;
@@ -106,13 +123,14 @@ document.addEventListener("DOMContentLoaded", function() {
     var imageElement = document.getElementById("product-image");
     var titleElement = document.getElementById("title");
     var descriptionElement = document.getElementById("description");
-    var priceElement = document.getElementById("price");
-  
+    var addToCartButton = document.getElementById("add-to-cart");
+
     imageElement.src = produto.image;
     titleElement.textContent = produto.title;
     descriptionElement.textContent = produto.description;
-    priceElement.textContent = "R$ " + produto.price.toFixed(2);
-  }
+    addToCartButton.textContent = "Adicionar  -  R$ " + produto.price.toFixed(2);
+}
+
   
   function exibirMensagemDeErro() {
     var titleElement = document.getElementById("title");
