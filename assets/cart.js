@@ -47,7 +47,7 @@ function renderizarProdutos(produtos) {
     divDescricao.classList.add("product-description");
 
     var description = document.createElement("h3");
-    description.textContent = cortarTexto(produto.description, 23);
+    description.textContent = cortarTexto(produto.description, 28);
     divDescricao.appendChild(description);
     divDetalhes.appendChild(divDescricao);
 

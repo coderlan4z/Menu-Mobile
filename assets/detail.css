@@ -4,8 +4,7 @@ body{
         font-family: 'Poppins', sans-serif;
 }
 main{
-        justify-content: center;
-        align-items: center;
+        margin: 0;
         padding-bottom: 8rem;
 }
 footer{
@@ -18,18 +17,18 @@ h1{
 }
 h2{
         font-weight: 600;
-        margin: 0;
+        margin: .5rem 0 0 0;
         font-size: 1.5rem;
 }
 h3{
         font-weight: 400;
-        margin: 0;
+        margin: .5rem 0 0 0;
         font-size: 1rem;
         color: rgba(0, 0, 0, 0.8);
 }
 h4{
         font-weight: 400;
-        margin: .5rem 0 0 0;
+        margin: 1rem 0 0 0;
         font-size: .9rem;
         word-wrap: break-word;
 }
