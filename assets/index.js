@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }
   
   function redirecionarParaDetalhes(id) {
-    var url = "detail.html?id=" + 3;
+    var url = "detail.html?id=" + 2;
     window.location.href = url;
   }
   
@@ -165,4 +165,8 @@ document.addEventListener("DOMContentLoaded", function() {
   }
   
   exibirProdutos();
+
+  function goToCart(){
+    window.location.href = "cart.html";
+  }
   

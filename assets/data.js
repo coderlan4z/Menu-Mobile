@@ -44,4 +44,22 @@ var produtos = [
             price: 5.99,
             image: "img-products/costelinha.jpg"
         },
+        {
+            id: "6",
+            category: "Acompanhamentos",
+            title: "Batata Frita",
+            description: "aaaaaaaaaaaaaa da Batata Frita",
+            serves: 1,
+            price: 7.99,
+            image: "img-products/costelinha.jpg"
+        },
+        {
+            id: "7",
+            category: "Acompanhamentos",
+            title: "Batata Frita",
+            description: "aaaaaaaaaaaaaa da Batata Frita",
+            serves: 1,
+            price: 7.99,
+            image: "img-products/costelinha.jpg"
+        },
     ];

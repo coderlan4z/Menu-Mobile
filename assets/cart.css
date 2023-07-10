@@ -72,16 +72,15 @@ h6{
         top: 1.2rem;
         left: 1.2rem;
 }
-.arrow i{
+.arrow button{
         font-size: 1.5rem;
-        padding: .8rem .90rem;
+        padding: .8rem 1rem;
         background-color: #f6f368;
         border-radius: 50%;
+        border: none;
 }
-.arrow a{
-        text-decoration: none;
-        color: rgb(0, 0, 0);
-        border-radius: 50%;
+.arrow button:active{
+        background-color: #dcd94a;
 }
 .quantidade{
         display: flex;

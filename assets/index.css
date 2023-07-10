@@ -10,15 +10,14 @@ main{
 .logo img{
         width: 100%;
 }
-.cart i{
+.cart button{
         background-color: #f6f368;
-        padding: .8rem;
+        padding: .8rem 1rem;
         border-radius: 50%;
         box-shadow: 2px 4px 5px rgba(255, 255, 255, 0.2);
         font-size: 1.5rem;
 }
-.cart a{
-        text-decoration: none;
+.cart i{
         color: rgb(0, 0, 0);
 }
 .cart{
@@ -26,7 +25,8 @@ main{
         right: 1.2rem;
         top: 1.2rem;
 }
-.cart i:active {
+
+.cart button:active {
         background-color: #dcd94a;
 }
 .search{

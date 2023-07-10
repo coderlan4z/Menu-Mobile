@@ -37,19 +37,30 @@ document.addEventListener("DOMContentLoaded", function() {
     return null;
   }
   
+  function verificarItemExistente(produtos, novoProduto) {
+    for (var i = 0; i < produtos.length; i++) {
+      var produto = produtos[i];
+      if (produto.title === novoProduto.title) {
+        produto.quantidade++;
+        return true;
+      }
+    }
+    return false;
+  }
+  
+
   function adicionarAoCarrinho() {
     var productId = new URLSearchParams(window.location.search).get("id");
     var produto = encontrarProdutoPorId(productId);
   
     if (produto) {
-      var item = {
-        id: produto.id,
-        title: produto.title,
-        price: produto.price,
-        quantidade: quantidade,
-        image: produto.image,
-        description: produto.description // Incluindo a descrição do produto
-      };
+      var quantidadeInput = document.getElementById("quantity");
+      var quantidade = parseInt(quantidadeInput.textContent);
+  
+      if (isNaN(quantidade) || quantidade <= 0) {
+        console.log("Quantidade inválida. Insira um valor numérico maior que zero.");
+        return;
+      }
   
       var carrinho = sessionStorage.getItem("carrinho");
       var produtos;
@@ -60,14 +71,36 @@ document.addEventListener("DOMContentLoaded", function() {
         produtos = [];
       }
   
-      produtos.push(item);
-      sessionStorage.setItem("carrinho", JSON.stringify(produtos));
+      var itemExistente = false;
+      for (var i = 0; i < produtos.length; i++) {
+        var item = produtos[i];
+        if (item.id === produto.id) {
+          item.quantidade += quantidade;
+          itemExistente = true;
+          break;
+        }
+      }
   
-      console.log("Item adicionado ao carrinho:", item);
+      if (!itemExistente) {
+        var item = {
+          id: produto.id,
+          title: produto.title,
+          price: produto.price,
+          quantidade: quantidade,
+          image: produto.image,
+          description: produto.description // Incluindo a descrição do produto
+        };
+        produtos.push(item);
+      }
+  
+      sessionStorage.setItem("carrinho", JSON.stringify(produtos));
+      console.log("Item adicionado ao carrinho:", produto);
     } else {
       console.log("Erro ao adicionar item ao carrinho. Produto não encontrado.");
     }
   }
+  
+
   
   function exibirDetalhesDoProduto(produto) {
     var imageElement = document.getElementById("product-image");
@@ -86,3 +119,6 @@ document.addEventListener("DOMContentLoaded", function() {
     titleElement.textContent = "Produto não encontrado";
   }
   
+  function goToHome(){
+    window.location.href = "index.html";
+  }

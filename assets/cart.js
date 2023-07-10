@@ -212,6 +212,10 @@ function diminuirQuantidade(index) {
   }
 }
 
+function goToHome(){
+  window.location.href = "index.html";
+}
+
 function finalizarCompra() {
   // Implemente a lógica para finalizar a compra aqui
   console.log("Compra finalizada");
