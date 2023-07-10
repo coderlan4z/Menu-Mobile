@@ -8,6 +8,9 @@ main{
         padding-bottom: 1rem;
         z-index: 1;
 }
+header{
+        margin-top: -3.2rem;
+}
 .logo img{
         width: 100%;
 }
@@ -22,9 +25,10 @@ main{
         color: rgb(0, 0, 0);
 }
 .cart{
-        position: absolute;
+        position: relative;
+        float: right;
+        top: 4.2rem;
         right: 1.2rem;
-        top: 1.2rem;
         z-index: 1;
 }
 
@@ -32,8 +36,8 @@ main{
         background-color: #dcd94a;
 }
 .sociais{
-        position: absolute;
-        top: 21.5rem;
+        position: relative;
+        top: -5.8rem;
         z-index: 1;
         margin: 0 1.15rem;
 }
@@ -57,7 +61,7 @@ main{
 }
 .search{
         position: relative;
-        top: -2.3rem;
+        top: -4.6rem;
         text-align: center;
         background-color: #ffffff;
         border-radius: 2.5rem ;
