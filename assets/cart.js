@@ -132,7 +132,12 @@ function atualizarBotaoDiminuir(index, decrementButton) {
 function exibirCarrinhoVazio() {
   var cartItems = document.getElementById("cart-items");
   var totalElement = document.getElementById("cart-total");
-  cartItems.innerHTML = "Sua sacola está vazia.";
+  cartItems.innerHTML = ""; // Limpa o conteúdo anterior
+
+  var emptyCartMsg = document.createElement("p");
+  emptyCartMsg.textContent = "Sua sacola está vazia.";
+  cartItems.appendChild(emptyCartMsg);
+
   totalElement.textContent = "";
 }
 

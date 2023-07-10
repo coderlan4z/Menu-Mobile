@@ -12,9 +12,11 @@ document.addEventListener("DOMContentLoaded", function() {
   var siteSearch = document.getElementById("site-search");
   siteSearch.addEventListener("input", function() {
     if (this.value.trim() === "") {
-      exibirProdutos();
+      // Recarrega a página
+      location.reload();
     }
   });
+  
 
   exibirProdutos();
 
@@ -53,42 +55,26 @@ function pesquisar() {
   });
 
   if (filteredProdutos.length === 0) {
+    productsDiv.classList.add("no-results");
+
     var noResultsMsg = document.createElement("p");
     noResultsMsg.textContent = "Nenhum produto encontrado.";
     productsDiv.appendChild(noResultsMsg);
+    
+    var footer = document.querySelector("footer");
+    footer.style.display = "none"; // Oculta o rodapé
   } else {
+    productsDiv.classList.remove("no-results");
+
     filteredProdutos.forEach(function(produto) {
-      var productContainer = document.createElement("div");
-      productContainer.classList.add("product-principal");
-      productContainer.dataset.productId = produto.id;
-
-      var title = document.createElement("h2");
-      var truncatedTitle = produto.title.length > 20 ? produto.title.slice(0, 20) + '...' : produto.title;
-      title.textContent = truncatedTitle;
-      productContainer.appendChild(title);
-
-      var description = document.createElement("h3");
-      var truncatedDescription = produto.description.length > 24 ? produto.description.slice(0, 24) + '...' : produto.description;
-      description.textContent = truncatedDescription;
-      productContainer.appendChild(description);
-
-      var serves = document.createElement("h5");
-      serves.textContent = "Serve: " + produto.serves + " pessoas";
-      productContainer.appendChild(serves);
-
-      var price = document.createElement("h4");
-      price.textContent = "R$ " + produto.price.toFixed(2);
-      productContainer.appendChild(price);
-
-      var image = document.createElement("img");
-      image.src = produto.image;
-      image.alt = "Imagem do Produto";
-      productContainer.appendChild(image);
-
-      productsDiv.appendChild(productContainer);
+      // ... código para exibir os produtos filtrados ...
     });
+
+    var footer = document.querySelector("footer");
+    footer.style.display = "block"; // Mostra o rodapé
   }
 }
+
 
 function redirecionarParaDetalhes(id) {
   var url = "detail.html?id=" + 4;
