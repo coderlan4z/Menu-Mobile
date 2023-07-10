@@ -91,7 +91,7 @@ function pesquisar() {
 }
 
 function redirecionarParaDetalhes(id) {
-  var url = "detail.html?id=" + id;
+  var url = "detail.html?id=" + 4;
   window.location.href = url;
 }
 
@@ -137,7 +137,7 @@ function exibirProdutos() {
     productContainer.appendChild(title);
 
     var description = document.createElement("h3");
-    var truncatedDescription = produto.description.length > 20 ? produto.description.slice(0, 18) + '...' : produto.description;
+    var truncatedDescription = produto.description.length > 20 ? produto.description.slice(0, 24) + '...' : produto.description;
     description.textContent = truncatedDescription;
     productContainer.appendChild(description);
 

@@ -6,6 +6,7 @@ body{
 main{
         justify-content: center;
         align-items: center;
+        padding-bottom: 8rem;
 }
 footer{
         display: inline;
