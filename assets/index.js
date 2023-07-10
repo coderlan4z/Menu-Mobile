@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function() {
       location.reload();
     }
   });
-  
 
   exibirProdutos();
 
@@ -28,14 +27,14 @@ document.addEventListener("DOMContentLoaded", function() {
       redirecionarParaDetalhes(productId);
     });
   });
-});
 
-var searchButton = document.getElementById("cart-button");
-searchButton.addEventListener("click", function() {
-  this.classList.add("clicked");
-  setTimeout(function() {
-    searchButton.classList.remove("clicked");
-  }, 50);
+  var cartButton = document.getElementById("cart-button");
+  cartButton.addEventListener("click", function() {
+    this.classList.add("clicked");
+    setTimeout(function() {
+      cartButton.classList.remove("clicked");
+    }, 50);
+  });
 });
 
 function pesquisar() {
@@ -60,7 +59,7 @@ function pesquisar() {
     var noResultsMsg = document.createElement("p");
     noResultsMsg.textContent = "Nenhum produto encontrado.";
     productsDiv.appendChild(noResultsMsg);
-    
+
     var footer = document.querySelector("footer");
     footer.style.display = "none"; // Oculta o rodapé
   } else {
@@ -74,7 +73,6 @@ function pesquisar() {
     footer.style.display = "block"; // Mostra o rodapé
   }
 }
-
 
 function redirecionarParaDetalhes(id) {
   var url = "detail.html?id=" + 4;
@@ -118,12 +116,12 @@ function exibirProdutos() {
     productContainer.dataset.productId = produto.id;
 
     var title = document.createElement("h2");
-    var truncatedTitle = produto.title.length > 20 ? produto.title.slice(0, 18) + '' : produto.title;
+    var truncatedTitle = produto.title.length > 20 ? produto.title.slice(0, 18) + "..." : produto.title;
     title.textContent = truncatedTitle;
     productContainer.appendChild(title);
 
     var description = document.createElement("h3");
-    var truncatedDescription = produto.description.length > 20 ? produto.description.slice(0, 24) + '...' : produto.description;
+    var truncatedDescription = produto.description.length > 20 ? produto.description.slice(0, 24) + "..." : produto.description;
     description.textContent = truncatedDescription;
     productContainer.appendChild(description);
 
@@ -148,10 +146,21 @@ function exibirProdutos() {
       bebidasDiv.appendChild(productContainer);
     }
   });
+
+  // Obter a quantidade de itens no carrinho
+  var carrinho = sessionStorage.getItem("carrinho");
+  var quantidadeItensCarrinho = carrinho ? JSON.parse(carrinho).length : 0;
+
+  // Atualizar o conteúdo do botão do carrinho com a quantidade de itens
+  var cartButton = document.getElementById("cart-button");
+  var cartQuantity = document.createElement("span");
+  cartQuantity.classList.add("cart-quantity");
+  cartQuantity.textContent = quantidadeItensCarrinho;
+  cartButton.innerHTML = "";
+  cartButton.appendChild(cartQuantity);
 }
 
-exibirProdutos();
 
-function goToCart(){
+function goToCart() {
   window.location.href = "cart.html";
 }
