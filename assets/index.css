@@ -23,13 +23,13 @@ main{
 .cart{
         position: absolute;
         overflow: hidden;
-        right: 1rem;
-        top: 1rem;
+        right: 1.2rem;
+        top: 1.2rem;
 }
 .cart .clicked{
         transform: scale(1.05);
 }
-.cart a:active {
+.cart i:active {
         background-color: #dcd94a;
 }
 .search{
