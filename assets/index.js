@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }
   
   function redirecionarParaDetalhes(id) {
-    var url = "detail.html?id=" + id;
+    var url = "detail.html?id=" + 3;
     window.location.href = url;
   }
   
