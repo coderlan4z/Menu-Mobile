@@ -83,9 +83,6 @@ h6{
         color: rgb(0, 0, 0);
         border-radius: 50%;
 }
-.arrow :active {
-        background-color: #dcd94a;
-}
 .quantidade{
         display: flex;
         padding: .02rem .1rem .08rem;
