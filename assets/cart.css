@@ -133,3 +133,21 @@ h6{
 #cart-total button:active {
         background-color: #dcd94a;
 }
+
+@media screen and (min-width: 768px) {
+        html{
+                max-width: 768px;
+                margin: auto;
+        }
+        header{
+                width: 768px;
+        }
+        #cart-total{
+                width: 768px;
+                border-radius: 1rem 1rem 0 0;
+        }
+        #cart-total button{
+                width: 90%;
+                margin: 0 5% 1rem 5%;
+        }
+}
