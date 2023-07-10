@@ -1,0 +1,33 @@
+header{
+        position: fixed;
+        width: 100%;
+        background-color: white;
+        z-index: 1;
+        height: 5.5rem;
+        top: 0;
+}  
+h6{
+        font-weight: 700;
+        margin: 1.6rem 0 3rem 0;
+        font-size: 1.5rem;
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+}
+.arrow{
+        position: absolute;
+        top: 1.2rem;
+        left: 1.2rem;
+}
+.arrow i{
+        color: black;
+}
+.arrow button{
+        font-size: 1.5rem;
+        padding: .8rem 1.05rem;
+        background-color: #f6f368;
+        border-radius: 50%;
+        border: none;
+}
+.arrow button:active{
+        background-color: #dcd94a;
+}

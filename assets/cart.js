@@ -94,7 +94,7 @@ function renderizarProdutos(produtos) {
   totalElement.appendChild(totalText);
 
   var finalizarCompraButton = document.createElement("button");
-  finalizarCompraButton.textContent = "Finalizar Compra";
+  finalizarCompraButton.textContent = "Finalizar Pedido";
   finalizarCompraButton.addEventListener("click", finalizarCompra);
   totalElement.appendChild(finalizarCompraButton);
 
@@ -222,6 +222,5 @@ function goToHome(){
 }
 
 function finalizarCompra() {
-  // Implemente a lógica para finalizar a compra aqui
-  console.log("Compra finalizada");
+  window.location.href = "finalizar.html";
 }
