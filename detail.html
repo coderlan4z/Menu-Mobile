@@ -1,16 +1,44 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/detail.css">
+  <script src="https://kit.fontawesome.com/a33a8d6d19.js" crossorigin="anonymous"></script>
+  <title>Document</title>
 </head>
+
 <body>
-    <h1 id="title"></h1>
-    <p id="description"></p>
-    <h2 id="price"></h2>
-    <img id="image" src="" alt="Imagem do Produto">
-    
-    <script src="assets/detail.js"></script>
+  <main>
+    <div class="arrow">
+      <a href="index.html"><i class="fa-solid fa-arrow-left"></i></a>
+    </div>
+
+    <div class="product-image">
+      <img id="product-image" src="" alt="Imagem do Produto">
+    </div>
+
+    <div class="product">
+      <h2 id="title"></h2>
+      <h3 id="description"></h3>
+      <h4 id="price"></h4>
+      <div class="quantity-selector">
+        <button onclick="decrementarQuantidade()"><i class="fa-solid fa-minus"></i></button>
+        <span id="quantity">1</span>
+        <button onclick="incrementarQuantidade()"><i class="fa-solid fa-plus"></i></button>
+        <a href="index.html"><button onclick="adicionarAoCarrinho()" id="add-to-cart">Adicionar ao carrinho</button></a>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="assets/data.js"></script>
+  <script src="assets/detail.js"></script>
+
 </body>
+
 </html>

@@ -1,7 +1,6 @@
 body{
         margin: 0;
         padding: 0;
-        height: auto;
 }
 main{
         margin : 0 1.2rem;
@@ -9,16 +8,38 @@ main{
 }
 .logo img{
         width: 100%;
-        filter: blur(1px);
+}
+.cart i{
+        background-color: #f6f368;
+        padding: .8rem;
+        border-radius: 50%;
+        box-shadow: 2px 4px 5px rgba(255, 255, 255, 0.2);
+        font-size: 1.5rem;
+}
+.cart a{
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+        transition: background-color 0.5s;
+}
+.cart{
+        position: absolute;
+        overflow: hidden;
+        right: 1rem;
+        top: 1rem;
+}
+.cart .clicked{
+        transform: scale(1.05);
+}
+.cart a:active {
+        background-color: #dcd94a;
 }
 .search{
         position: relative;
-        top: -2.1rem;
+        top: -2.3rem;
         text-align: center;
         background-color: #ffffff;
-        border-radius: 2rem ;
-        width: 75%;
-        margin: auto;
+        border-radius: 2.5rem ;
+        margin: 0 1.2rem;
         border: 5px solid #f6f368;
         padding: .5rem;
         box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.2);
@@ -30,18 +51,23 @@ main{
         font-size: 1rem;        
 }
 .search button{
+        position: absolute;
         background-color: #f6f368;
         border-radius: 50%;
-        padding: .5rem .6rem;
+        padding: .8rem .9rem;
         align-self: end;
         transition: transform 0.3s ease;
+        right: .2rem;
+        top: .2rem;
 }
 .search button.clicked {
         transform: scale(1.15); 
-      }
+}
+.search button:active {
+        background-color: #dcd94a;
+}
 .search input{
       background-color: transparent;
-      width: 86%;
       font-family: 'Poppins', sans-serif;
       margin-left: .1rem;
 }
