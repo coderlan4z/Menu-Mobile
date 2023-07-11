@@ -259,12 +259,12 @@ function finalizarCompra() {
     resumoPedido += "R$: " + produto.price.toFixed(2) + "\n";
     resumoPedido += "Qtd: " + produto.quantidade + "\n";
     resumoPedido += "Obs: " + quebrarTexto(produto.observacao, 19) + "\n"; // Quebra o texto das observações em linhas
-    resumoPedido += "---------------------------------------\n";
+    resumoPedido += "--------------------------------------\n";
 
     total += produto.price * produto.quantidade; // Calcula o total do pedido
   });
 
-  resumoPedido += "Valor total: R$" + total.toFixed(2) + "\n"; // Adiciona a linha do total ao resumo do pedido
+  resumoPedido += "Valor do pedido: R$" + total.toFixed(2) + "\n"; // Adiciona a linha do total ao resumo do pedido
 
   // Armazena o resumo do pedido no sessionStorage
   sessionStorage.setItem("resumoPedido", resumoPedido);

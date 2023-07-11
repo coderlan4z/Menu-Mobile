@@ -27,6 +27,11 @@
       <label for="endereco">Endereço:</label>
       <input type="text" id="endereco" name="endereco" required>
     </div>
+    <div>
+        <label for="contato">Contato:</label>
+        <input type="tel" class="form-control" id="phone" name="tel" maxlength="15" pattern="\(\d{2}\)\s*\d{5}-\d{4}" autocomplete="tel-national" required>
+      
+    </div>
     <button onclick="criarMensagemWhatsApp()">Enviar mensagem pelo WhatsApp</button>
     <p id="mensagem-erro"></p>
   </main>
