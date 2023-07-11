@@ -7,8 +7,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/finalizar.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="/favicon_io/site.webmanifest">
   <script src="https://kit.fontawesome.com/a33a8d6d19.js" crossorigin="anonymous"></script>
-  <title>Document</title>
+  <title>Finalizar Pedido | Jurassic Pork BBQ</title>
 </head>
 <body>
   <header>
@@ -23,15 +27,18 @@
       <label for="nome">Nome:</label>
       <input type="text" id="nome" name="nome" required>
     </div>
-    <div>
-      <label for="endereco">Endereço:</label>
-      <input type="text" id="endereco" name="endereco" required>
-    </div>
+
     <div>
         <label for="contato">Contato:</label>
         <input type="tel" class="form-control" id="phone" name="tel" maxlength="15" pattern="\(\d{2}\)\s*\d{5}-\d{4}" autocomplete="tel-national" required>
       
     </div>
+
+    <div>
+      <label for="endereco">Endereço:</label>
+      <input type="text" id="endereco" name="endereco" required>
+    </div>
+
     <button onclick="criarMensagemWhatsApp()">Enviar mensagem pelo WhatsApp</button>
     <p id="mensagem-erro"></p>
   </main>

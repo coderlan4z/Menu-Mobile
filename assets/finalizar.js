@@ -38,7 +38,7 @@ function criarMensagemWhatsApp() {
     var meuPedido = "--------------Meu pedido--------------\n\n";
     var contatoPedido = "Contato: " + contato + "\n";
     var enderecoFormatado = endereco.replace(/(\d+)\s*(.*)/, "$1\n$2\n--------------------------------------\n\n");
-    var pedidoComInfo = meuPedido + "Nome: " + nome + "\n" + contatoPedido + "\nEndereço: " + enderecoFormatado + resumoPedido;
+    var pedidoComInfo = meuPedido + "Nome: " + nome + "\n" + contatoPedido + "Endereço: " + enderecoFormatado + resumoPedido;
 
 
     // Armazena o resumo do pedido atualizado no sessionStorage
