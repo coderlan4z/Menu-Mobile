@@ -2,6 +2,7 @@ body{
         font-family: 'Poppins', sans-serif;
         background-color: #fbfbfb;
         height: 100vh;
+        margin: 0;
 }
 html{
         background-color: white;
