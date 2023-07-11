@@ -42,3 +42,7 @@ h6{
 .arrow button:active{
         background-color: #dcd94a;
 }
+main textarea:focus, input:focus {
+        box-shadow: 0 0 0 0;
+        outline: 0;
+    }
