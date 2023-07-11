@@ -28,7 +28,7 @@ h3{
 }
 h4{
         font-weight: 400;
-        margin: 1rem 0 0 0;
+        margin: .5rem 0 0 0;
         font-size: .9rem;
         word-wrap: break-word;
 }
@@ -67,6 +67,22 @@ h1, h2, h3, h4, h5{
 }
 .arrow button:active{
         background-color: #dcd94a;
+}
+.obs{
+        font-size: .8rem;
+        color: black;
+        padding: .3rem;
+        margin: 1rem .6rem 0   .6rem;
+}
+.obs label{
+        font-weight: 600;
+        margin: 0 .2rem 0;
+}
+.obs textarea{
+        width:98%;
+        height: 4rem;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        text-decoration: none;
 }
 .add button{
         background-color: #f6f368;

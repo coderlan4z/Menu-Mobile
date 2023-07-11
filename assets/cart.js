@@ -139,9 +139,13 @@ function exibirCarrinhoVazio() {
   cartItems.appendChild(emptyCartMsg);
 
   totalElement.textContent = "";
+
+  // Oculta a seção de observações
+  document.getElementById("observacoes").style.display = "none";
 }
 
-function adicionarAoCarrinho(id, nome, preco, imagem, descricao) {
+
+function adicionarAoCarrinho(id, nome, preco, imagem, descricao, obs) {
   var carrinho = sessionStorage.getItem("carrinho");
   var produtos;
 
@@ -157,7 +161,8 @@ function adicionarAoCarrinho(id, nome, preco, imagem, descricao) {
     price: preco,
     quantidade: 1,
     image: imagem,
-    description: descricao
+    description: descricao,
+    obs: obs,
   };
   produtos.push(item);
 
@@ -221,6 +226,52 @@ function goToHome(){
   window.location.href = "index.html";
 }
 
+function quebrarTexto(texto, limite) {
+  if (texto.length <= limite) {
+    return texto;
+  } else {
+    var partes = [];
+    var startIndex = 0;
+
+    while (startIndex < texto.length) {
+      var endIndex = startIndex + limite;
+      if (endIndex > texto.length) {
+        endIndex = texto.length;
+      }
+      partes.push(texto.slice(startIndex, endIndex));
+      startIndex = endIndex;
+    }
+
+    return partes.join("\n");
+  }
+}
+
 function finalizarCompra() {
+  var carrinho = sessionStorage.getItem("carrinho");
+  var produtos = JSON.parse(carrinho);
+
+  // Criação da lista de resumo do pedido
+  var resumoPedido = "";
+  var total = 0; // Variável para armazenar o total do pedido
+
+  produtos.forEach(function(produto) {
+    resumoPedido += produto.title + "\n";
+    resumoPedido += "R$: " + produto.price.toFixed(2) + "\n";
+    resumoPedido += "Qtd: " + produto.quantidade + "\n";
+    resumoPedido += "Obs: " + quebrarTexto(produto.observacao, 19) + "\n"; // Quebra o texto das observações em linhas
+    resumoPedido += "------------------------\n";
+
+    total += produto.price * produto.quantidade; // Calcula o total do pedido
+  });
+
+  resumoPedido += "Valor total: R$" + total.toFixed(2) + "\n"; // Adiciona a linha do total ao resumo do pedido
+
+  // Armazena o resumo do pedido no sessionStorage
+  sessionStorage.setItem("resumoPedido", resumoPedido);
+
+  // Redireciona para a página finalizar.html
   window.location.href = "finalizar.html";
 }
+
+
+

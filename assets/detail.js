@@ -76,6 +76,9 @@ function adicionarAoCarrinho() {
       return;
     }
 
+    var observacoesInput = document.getElementById("observacoes-texto");
+    var observacoes = observacoesInput.value.replace(/\r?\n/g, ""); // Remover as quebras de linha
+
     var carrinho = sessionStorage.getItem("carrinho");
     var produtos;
 
@@ -102,7 +105,8 @@ function adicionarAoCarrinho() {
         price: produto.price,
         quantidade: quantidade,
         image: produto.image,
-        description: produto.description // Incluindo a descrição do produto
+        description: produto.description,
+        observacao: observacoes, // Salva as observações junto com o item no carrinho
       };
       produtos.push(item);
     }
@@ -113,6 +117,8 @@ function adicionarAoCarrinho() {
     console.log("Erro ao adicionar item ao carrinho. Produto não encontrado.");
   }
 }
+
+
 
 function exibirDetalhesDoProduto(produto) {
   var imageElement = document.getElementById("product-image");
