@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-        
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
@@ -12,20 +11,26 @@
   <title>Document</title>
 </head>
 <body>
-        <header>
-                <div class="arrow">
-                        <button onclick="goToCart()"><i class="fa-solid fa-arrow-left"></i></button>
-                      </div>
-                  
-                      <h6>Finalizar Pedido</h6>  
-        </header>
+  <header>
+    <div class="arrow">
+      <button onclick="goToCart()"><i class="fa-solid fa-arrow-left"></i></button>
+    </div>
+    <h6>Finalizar Pedido</h6>  
+  </header>
 
-        <main>
-                <button onclick="criarMensagemWhatsApp()">Enviar mensagem pelo WhatsApp</button>
+  <main>
+    <div>
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" required>
+    </div>
+    <div>
+      <label for="endereco">Endereço:</label>
+      <input type="text" id="endereco" name="endereco" required>
+    </div>
+    <button onclick="criarMensagemWhatsApp()">Enviar mensagem pelo WhatsApp</button>
+    <p id="mensagem-erro"></p>
+  </main>
 
-        </main>
-        
-
-        <script src="assets/finalizar.js"></script>
+  <script src="assets/finalizar.js"></script>
 </body>
 </html>

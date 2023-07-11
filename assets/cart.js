@@ -259,7 +259,7 @@ function finalizarCompra() {
     resumoPedido += "R$: " + produto.price.toFixed(2) + "\n";
     resumoPedido += "Qtd: " + produto.quantidade + "\n";
     resumoPedido += "Obs: " + quebrarTexto(produto.observacao, 19) + "\n"; // Quebra o texto das observações em linhas
-    resumoPedido += "------------------------\n";
+    resumoPedido += "---------------------------------------\n";
 
     total += produto.price * produto.quantidade; // Calcula o total do pedido
   });
