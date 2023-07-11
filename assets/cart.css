@@ -1,18 +1,23 @@
 body{
         font-family: 'Poppins', sans-serif;
-        margin: 0;
+        background-color: #fbfbfb;
+        height: 100vh;
+}
+html{
+        background-color: white;
 }
 main{
         margin : 0 1.2rem;
         font-family: 'Poppins', sans-serif;
+        padding-top: .5rem;
+        padding-bottom: 8rem;
 }
 header{
         position: fixed;
         width: 100%;
-        background-color: white;
         z-index: 1;
-        height: 5.5rem;
         top: 0;
+        background-color: #fbfbfb;
 }  
 footer{
         width: 100%;
@@ -30,7 +35,7 @@ h2{
 h3{
         font-weight: 400;
         margin: 0;
-        font-size: .9rem;
+        font-size: .8rem;
         color: rgba(0, 0, 0, 0.8);
 }
 h4{
@@ -117,7 +122,7 @@ h6{
 #cart-total {
         position: fixed;
         bottom: 0;
-        background-color: white;
+        background-color: #fbfbfb;
         border-radius: 1rem 1rem 0 0;
         width: 100%;
         box-shadow: 0px -4px 6px -1px rgba(0, 0, 0, 0.1);
@@ -141,16 +146,16 @@ h6{
         background-color: #dcd94a;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 500px) {
         body{
-                max-width: 768px;
+                max-width: 500px;
                 margin: auto;
         }
         header{
-                width: 768px;
+                width: 500px;
         }
         #cart-total{
-                width: 768px;
+                width: 500px;
                 border-radius: 1rem 1rem 0 0;
         }
         #cart-total button{
