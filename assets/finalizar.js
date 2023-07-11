@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
   
     if (resumoPedido) {
       var mensagem = resumoPedido.replace(/\n/g, "%0A");
-      var urlWhatsApp = "https://wa.me/5531998128966?text=" + mensagem;
+      var urlWhatsApp = "https://wa.me/5531996128966?text=" + mensagem;
       window.open(urlWhatsApp, "_blank");
     }
   }
