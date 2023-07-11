@@ -1,28 +1,29 @@
-document.addEventListener("DOMContentLoaded", function() {
-    // Recupera o resumo do pedido do sessionStorage
-    var resumoPedido = sessionStorage.getItem("resumoPedido");
-  
-    // Exibe o resumo do pedido no elemento com o ID "detalhes-pedido"
-    var detalhesPedido = document.getElementById("detalhes-pedido");
-    detalhesPedido.textContent = resumoPedido;
-  
-    // Limpa o resumo do pedido do sessionStorage
-    sessionStorage.removeItem("resumoPedido");
-  });
+document.addEventListener("DOMContentLoaded", function () {
+  // Recupera o resumo do pedido do sessionStorage
+  var resumoPedido = sessionStorage.getItem("resumoPedido");
 
-  function goToCart () {
-    window.location.href = "cart.html";
+  // Exibe o resumo do pedido no elemento com o ID "detalhes-pedido"
+  var detalhesPedido = document.getElementById("detalhes-pedido");
+  detalhesPedido.textContent = resumoPedido;
+
+  // Limpa o resumo do pedido do sessionStorage
+  sessionStorage.removeItem("resumoPedido");
+});
+
+function goToCart() {
+  window.location.href = "cart.html";
 }
-document.addEventListener("DOMContentLoaded", function() {
-    
-  });
-  
+
+
 
 function criarMensagemWhatsApp() {
-  var nome = document.getElementById("nome").value;
-  var endereco = document.getElementById("endereco").value;
-  var contato = document.getElementById("phone").value;
+  var nome = document.getElementById('nome').value;
+  var contato = document.getElementById('phone').value;
+  var rua = document.getElementById('rua').value;
+  var numero = document.getElementById('numero').value;
+  var bairro = document.getElementById('bairro').value;
   var resumoPedido = sessionStorage.getItem("resumoPedido");
+  var endereco = "Rua " + rua + ', ' + numero + "\n" + "Bairro " + bairro;
 
   var mensagemErro = document.getElementById("mensagem-erro");
 
@@ -37,7 +38,7 @@ function criarMensagemWhatsApp() {
   if (resumoPedido) {
     var meuPedido = "--------------Meu pedido--------------\n\n";
     var contatoPedido = "Contato: " + contato + "\n";
-    var enderecoFormatado = endereco.replace(/(\d+)\s*(.*)/, "$1\n$2\n--------------------------------------\n\n");
+    var enderecoFormatado = endereco + "\n--------------------------------------\n\n";
     var pedidoComInfo = meuPedido + "Nome: " + nome + "\n" + contatoPedido + "Endereço: " + enderecoFormatado + resumoPedido;
 
 
@@ -59,19 +60,8 @@ tel.addEventListener('keypress', (e) => mascaraTelefone(e.target.value)) // Disp
 tel.addEventListener('change', (e) => mascaraTelefone(e.target.value)) // Dispara quando autocompletado o campo
 
 const mascaraTelefone = (valor) => {
-    valor = valor.replace(/\D/g, "")
-    valor = valor.replace(/^(\d{2})(\d)/g, "($1) $2")
-    valor = valor.replace(/(\d)(\d{4})$/, "$1-$2")
-    tel.value = valor // Insere o(s) valor(es) no campo
+  valor = valor.replace(/\D/g, "")
+  valor = valor.replace(/^(\d{2})(\d)/g, "($1) $2")
+  valor = valor.replace(/(\d)(\d{4})$/, "$1-$2")
+  tel.value = valor // Insere o(s) valor(es) no campo
 }
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  

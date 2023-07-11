@@ -1,58 +1,147 @@
-body{
+body {
         margin: 0;
         padding: 0;
         background-color: #fbfbfb;
+        overflow-x: hidden;
+        overflow-y: hidden;
 }
-html{
+
+html {
         height: auto;
         background-color: white;
 }
-main{
-        margin : 0 1.2rem;
-        padding-top: 7rem;
-        height: 86.5vh;
+
+main {
+        margin: 0 1.2rem;
+        font-family: 'Poppins', sans-serif;
+        height: 60rem;
 }
-header{
-        position: fixed;
-        width: 100%;
-        background-color: #fbfbfb;
-        z-index: 1;
-        height: 5.5rem;
-        top: 0;
-}  
-h6{
+
+header {
+        display: grid;
+        max-width: 500px;
+        grid-template-columns: 5% 95%;
+        text-align: center;
+}
+
+h6 {
         font-weight: 700;
         margin: 1.6rem 0 3rem 0;
         font-size: 1.5rem;
         text-align: center;
         font-family: 'Poppins', sans-serif;
 }
-.arrow{
-        position: absolute;
-        top: 1.2rem;
-        left: 1.2rem;
+
+.arrow {
+        margin: 1.2rem 0 0 1.2rem;
+        z-index: 1;
 }
-.arrow i{
+
+.arrow i {
         color: black;
 }
-.arrow button{
+
+.arrow button {
         font-size: 1.5rem;
         padding: .8rem 1.05rem;
         background-color: #f6f368;
         border-radius: 50%;
         border: none;
 }
-.arrow button:active{
+
+.arrow button:active {
         background-color: #dcd94a;
 }
 
+input[type="text"],
+input[type="tel"] {
+        -webkit-tap-highlight-color: transparent;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        outline: none;
+        background-color: #fbfbfb;
+        border: .1rem solid #dcd94a;
+        padding: .4rem;
+        border-radius: .2rem;
+}
+.endereco {
+        display: grid;
+        grid-template-columns: 60% 30%;
+        justify-content: space-between;
+        gap: .6rem 8%;
+}
+
+.endereco input {
+        padding: .4rem;
+        border-radius: .2rem;
+}
+.nome{
+        margin-bottom: .6rem;
+}
+.contato{
+        margin-bottom: .6rem;
+}
+.nome input{
+        width: 96.5%;
+}
+.contato input{
+        width: 96.5%;
+}
+.rua input{
+        width: 100%;
+}
+.numero input {
+        max-width: 88%;
+}
+.bairro input{
+        width: 160.5%;
+}
+footer{
+        position: fixed;
+        bottom: 0;
+        background-color: #fbfbfb;
+        border-radius: 1rem 1rem 0 0;
+        box-shadow: 0px -4px 6px -1px rgba(0, 0, 0, 0.1);
+        text-align: center;
+}
+footer button{
+        background-color: #f6f368;
+        border: none;
+        padding: .7rem;
+        font-size: 1rem;
+        font-weight: 600;
+        width: 90vw;
+        border-radius: 2rem;
+        margin: 1rem 5vw 1rem 5vw;
+        color: black;
+}
+
+
 @media screen and (min-width: 500px) {
-        body{
+        body {
                 max-width: 500px;
                 margin: auto;
         }
-        header{
+
+        header {
                 width: 500px;
         }
+        footer{
+                width: 500px;
+        }
+        footer button{
+                width: 90%;
+                margin: 1rem 5% 1rem 5%;
+        }
+        .nome input{
+                width: 98%;
+        }
+        .contato input{
+                width: 98%;
+        }
+        .numero input{
+                max-width: 94%;
+        }
 }
-     
