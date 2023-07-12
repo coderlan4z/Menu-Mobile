@@ -37,7 +37,7 @@ function renderizarProdutos(produtos) {
     var divTitulo = document.createElement("div");
     divTitulo.classList.add("product-title");
 
-    var title = document.createElement("h1");
+    var title = document.createElement("h2");
     var truncatedTitle = produto.title.length > 20 ? produto.title.slice(0, 20) + '' : produto.title;
     title.textContent = truncatedTitle;
     divTitulo.appendChild(title);
@@ -90,8 +90,12 @@ function renderizarProdutos(produtos) {
   });
 
   var totalText = document.createElement("h3");
-  totalText.textContent = "Total R$" + total.toFixed(2);
+  totalText.textContent = "Total";
   totalElement.appendChild(totalText);
+
+  var totalValue = document.createElement("h4");
+  totalValue.textContent = "R$ " + total.toFixed(2);
+  totalElement.appendChild(totalValue);
 
   var finalizarCompraButton = document.createElement("button");
   finalizarCompraButton.textContent = "Finalizar Pedido";

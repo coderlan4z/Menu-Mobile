@@ -123,6 +123,10 @@ h6{
 }
 #cart-total {
         position: fixed;
+        display: grid;
+        width: 100%;
+        grid-template-columns: 63% 37%;
+        grid-row: 1fr;
         bottom: 0;
         background-color: #fbfbfb;
         border-radius: 1rem 1rem 0 0;
@@ -131,8 +135,15 @@ h6{
 }
 #cart-total h3{
         font-size: 1rem;
-        padding: 1rem 5vw;
+        padding: 1.2rem;
 }
+#cart-total h4{
+        font-size: 1rem;
+        padding: 1.2rem;
+        margin: 0;
+        text-align: end;
+}
+
 #cart-total button{
         background-color: #f6f368;
         border: none;
@@ -161,7 +172,8 @@ h6{
                 border-radius: 1rem 1rem 0 0;
         }
         #cart-total button{
-                width: 90%;
-                margin: 0 5% 1rem 5%;
+                margin: 0 9% 1rem 9%;
+                width: 28rem;
         }
+
 }
