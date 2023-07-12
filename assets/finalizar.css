@@ -13,7 +13,6 @@ html {
 main {
         margin: 0 1.2rem;
         font-family: 'Poppins', sans-serif;
-        height: 80vh;
         padding-top: 8.2rem;
 }
 
@@ -113,6 +112,23 @@ label{
 .comp{
         margin-left: -30%;
 }
+#gerar{
+        background-color: #f6f368;
+        border: none;
+        padding: .7rem;
+        font-size: 1rem;
+        font-weight: 600;
+        width: 100%;
+        border-radius: 2rem;
+        color: black;
+}
+#gerar:active{
+        background-color: #dcd94a;
+}
+p{
+        color: rgba(0, 0, 0, 0.5);
+        text-align: center;
+}
 footer{
         position: fixed;
         bottom: 0;
@@ -132,6 +148,9 @@ footer button{
         margin: 1rem 5vw 1rem 5vw;
         color: black;
 }
+footer button:active{
+        background-color: #dcd94a;
+}
 
 
 @media screen and (min-width: 500px) {
@@ -149,6 +168,9 @@ footer button{
         footer button{
                 width: 90%;
                 margin: 1rem 5% 1rem 5%;
+        }
+        #gerar{
+                width:100%;
         }
         .nome input{
                 width: 98%;
