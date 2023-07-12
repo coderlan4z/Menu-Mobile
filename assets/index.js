@@ -27,14 +27,6 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
-var searchButton = document.getElementById("cart-button");
-searchButton.addEventListener("click", function() {
-  this.classList.add("clicked");
-  setTimeout(function() {
-    searchButton.classList.remove("clicked");
-  }, 50);
-});
-
 function pesquisar() {
   var searchTerm = document.getElementById("site-search").value.toLowerCase();
   if (searchTerm.trim() === "") {

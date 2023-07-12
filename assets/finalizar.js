@@ -1,15 +1,3 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // Recupera o resumo do pedido do sessionStorage
-  var resumoPedido = sessionStorage.getItem("resumoPedido");
-
-  // Exibe o resumo do pedido no elemento com o ID "detalhes-pedido"
-  var detalhesPedido = document.getElementById("detalhes-pedido");
-  detalhesPedido.textContent = resumoPedido;
-
-  // Limpa o resumo do pedido do sessionStorage
-  sessionStorage.removeItem("resumoPedido");
-});
-
 function goToCart() {
   window.location.href = "cart.html";
 }
@@ -22,9 +10,9 @@ function criarMensagemWhatsApp() {
   var rua = document.getElementById('rua').value;
   var numero = document.getElementById('numero').value;
   var bairro = document.getElementById('bairro').value;
+  var complemento = document.getElementById('complemento').value;
   var resumoPedido = sessionStorage.getItem("resumoPedido");
-  var endereco = "Rua " + rua + ', ' + numero + "\n" + "Bairro " + bairro;
-
+  var endereco = "Rua " + rua + ', ' + numero + "\n" + "Bairro " + bairro + "\n" + complemento;
   var mensagemErro = document.getElementById("mensagem-erro");
 
   if (nome === "" || endereco === "" || contato === "") {
@@ -32,6 +20,7 @@ function criarMensagemWhatsApp() {
     mensagemErro.textContent = "Por favor, preencha todos os campos de texto.";
     return; // Retorna e interrompe a execução da função
   }
+
 
   mensagemErro.textContent = ""; // Limpa a mensagem de erro
 
