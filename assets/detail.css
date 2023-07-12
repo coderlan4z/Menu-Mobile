@@ -90,6 +90,7 @@ h1, h2, h3, h4, h5{
         text-decoration: none;
         background-color: #fbfbfb;
         border-radius: .25rem;
+        border-color: #dcd94a;
 }
 .obs textarea:focus, input:focus {
         box-shadow: 0 0 0 0;
