@@ -3,7 +3,6 @@ body {
         padding: 0;
         background-color: #fbfbfb;
         overflow-x: hidden;
-        overflow-y: hidden;
 }
 
 html {
@@ -14,7 +13,7 @@ html {
 main {
         margin: 0 1.2rem;
         font-family: 'Poppins', sans-serif;
-        height: 60rem;
+        height: 80vh;
 }
 
 header {
@@ -54,7 +53,8 @@ h6 {
 }
 
 input[type="text"],
-input[type="tel"] {
+input[type="tel"],
+input[type="number"]{
         -webkit-tap-highlight-color: transparent;
         -webkit-user-select: none;
         -moz-user-select: none;
@@ -96,7 +96,13 @@ input[type="tel"] {
         max-width: 88%;
 }
 .bairro input{
-        width: 160.5%;
+        width: 85%;
+}
+.comp input{
+        width: 91%;
+}
+.comp{
+        margin-left: -30%;
 }
 footer{
         position: fixed;
@@ -142,6 +148,9 @@ footer button{
                 width: 98%;
         }
         .numero input{
-                max-width: 94%;
+                max-width: 93.5%;
+        }
+        .comp input{
+                width: 94.8%;
         }
 }
