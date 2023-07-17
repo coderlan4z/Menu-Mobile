@@ -51,6 +51,11 @@ function renderizarProdutos(produtos) {
     divDescricao.appendChild(description);
     divDetalhes.appendChild(divDescricao);
 
+    var obs = document.createElement("h5");
+    obs.textContent = "Obs: " + cortarTexto(produto.observacao, 32);
+    divDescricao.appendChild(obs);
+    divDetalhes.appendChild(divDescricao);
+
     var price = document.createElement("h4");
     price.textContent = "R$ " + produto.price.toFixed(2);
     divDetalhes.appendChild(price);

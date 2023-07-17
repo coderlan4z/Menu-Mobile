@@ -40,7 +40,7 @@ function atualizarPreco() {
 }
 
 function atualizarQuantidade() {
-  document.getElementById('quantity').textContent = quantidade;
+  document.getElementById("quantity").textContent = quantidade;
 }
 
 function encontrarProdutoPorId(id) {
@@ -52,10 +52,10 @@ function encontrarProdutoPorId(id) {
   return null;
 }
 
-function verificarItemExistente(produtos, novoProduto) {
+function verificarItemExistente(produtos, novoProduto, observacao) {
   for (var i = 0; i < produtos.length; i++) {
     var produto = produtos[i];
-    if (produto.title === novoProduto.title) {
+    if (produto.title === novoProduto.title && produto.observacao === observacao) {
       produto.quantidade++;
       return true;
     }
@@ -88,15 +88,7 @@ function adicionarAoCarrinho() {
       produtos = [];
     }
 
-    var itemExistente = false;
-    for (var i = 0; i < produtos.length; i++) {
-      var item = produtos[i];
-      if (item.id === produto.id) {
-        item.quantidade += quantidade;
-        itemExistente = true;
-        break;
-      }
-    }
+    var itemExistente = verificarItemExistente(produtos, produto, observacoes);
 
     if (!itemExistente) {
       var item = {
@@ -117,8 +109,6 @@ function adicionarAoCarrinho() {
     console.log("Erro ao adicionar item ao carrinho. Produto não encontrado.");
   }
 }
-
-
 
 function exibirDetalhesDoProduto(produto) {
   var imageElement = document.getElementById("product-image");
