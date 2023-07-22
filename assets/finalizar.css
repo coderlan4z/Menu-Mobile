@@ -136,9 +136,22 @@ label{
         max-width: 500px;
         max-height: 500px;
 }
-p{
+#texto{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+}
+#texto p{
+        font-size: 1rem;
+        font-weight: 400;
+        word-wrap: break-word;
+        text-align: center;
+        color: rgba(0, 0, 0, 0.5);
+}
+#mensagem-pagamento{
         color: rgba(0, 0, 0, 0.5);
         text-align: center;
+        margin: 2rem 0 2rem 0;
 }
 footer{
         position: fixed;
