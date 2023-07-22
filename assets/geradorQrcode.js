@@ -1,22 +1,43 @@
+function gerarQRCodePIX() {
+  // Dados para a solicitação
+  const nome = "Kelly Jaqueline Siqueira";
+  const cidade = "Sete Lagoas";
+  const chavePix = "kellyjsborges@gmail.com";
+  const valor = parseFloat(sessionStorage.getItem('total'));
+
+  // URL da API
+  const url = `https://gerarqrcodepix.com.br/api/v1?nome=${nome}&cidade=${cidade}&chave=${chavePix}&valor=${valor.toFixed(2)}&saida=qr`;
+  const url2 = `https://gerarqrcodepix.com.br/api/v1?nome=${nome}&cidade=${cidade}&chave=${chavePix}&valor=${valor.toFixed(2)}&saida=br`;
+
+  console.log(url);
+  console.log(url2);
+  // Faz a solicitação HTTP para a API usando o fetch
+  fetch(url, {
+    method: "GET",
+    mode: "no-cors",
+  })
+    .then(response => {
+      if(response.status === 0) {
+        // Cria o elemento de imagem do QR Code
+        const qrCodeImage = document.createElement("img");
+        qrCodeImage.src = url;
+  
+        // Remove qualquer QR Code anterior
+        const qrCodeDiv = document.getElementById("qrcode");
+        qrCodeDiv.innerHTML = '';
+  
+        // Adiciona a imagem do QR Code na div com id "qrcode"
+        qrCodeDiv.appendChild(qrCodeImage);
+      } else {
+        console.error("Erro ao gerar o QR Code:", response);
+      }
+    })
+    .catch(error => {
+      console.error("Erro ao gerar o QR Code:", error);
+    });  
+
+}
+// Adiciona um manipulador de eventos ao botão de id "gerar"
 document.getElementById("gerar").addEventListener("click", function() {
-        const chavePix = "31987418717"; // Chave PIX pré-definida
-        const nomeBeneficiario = "Kelly Jaqueline"; // Nome do beneficiário pré-definido
-        const valorTotal = sessionStorage.getItem("total"); // Pegar o valor do sessionStorage
-      
-        // Concatenar os dados em um formato específico para o PIX
-        const dadosPIX = `chave=${chavePix}&nome=${encodeURIComponent(nomeBeneficiario)}&valor=${valorTotal}`;
-      
-        // Gerar o QR Code usando a biblioteca "qrcode-generator"
-        const qr = qrcode(4, "M");
-        qr.addData(dadosPIX);
-        qr.make();
-        const qrCodeImagem = document.createElement("img");
-        qrCodeImagem.src = qr.createDataURL(10);
-        console.log(qrCodeImagem.src);
-      
-        // Limpar o conteúdo anterior do container e adicionar a nova imagem do QR Code
-        const qrcodeContainer = document.getElementById("qrcodeContainer");
-        qrcodeContainer.innerHTML = "";
-        qrcodeContainer.appendChild(qrCodeImagem);
-      });
-      
+  gerarQRCodePIX();
+});

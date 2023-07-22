@@ -18,18 +18,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
   exibirProdutos();
 
-  // Adiciona ouvintes de eventos aos contêineres de produtos
-  var productContainers = document.querySelectorAll(".product-principal");
-  productContainers.forEach(function(container) {
-    container.addEventListener("click", function() {
-      redirecionarParaDetalhes(this.dataset.productId);
-    });
-  });
+  var footer = document.querySelector("footer");
+  footer.style.display = "none";
 });
 
 function pesquisar() {
   var searchTerm = document.getElementById("site-search").value.toLowerCase();
   if (searchTerm.trim() === "") {
+    exibirProdutos();
     return;
   }
 
@@ -53,33 +49,7 @@ function pesquisar() {
     productsDiv.classList.remove("no-results");
 
     filteredProdutos.forEach(function(produto) {
-      var productContainer = document.createElement("div");
-      productContainer.classList.add("product-principal");
-      productContainer.dataset.productId = produto.id;
-
-      var title = document.createElement("h2");
-      var truncatedTitle = produto.title.length > 20 ? produto.title.slice(0, 20) + '...' : produto.title;
-      title.textContent = truncatedTitle;
-      productContainer.appendChild(title);
-
-      var description = document.createElement("h3");
-      var truncatedDescription = produto.description.length > 24 ? produto.description.slice(0, 24) + '...' : produto.description;
-      description.textContent = truncatedDescription;
-      productContainer.appendChild(description);
-
-      var serves = document.createElement("h5");
-      serves.textContent = "Serve: " + produto.serves + " pessoas";
-      productContainer.appendChild(serves);
-
-      var price = document.createElement("h4");
-      price.textContent = "R$ " + produto.price.toFixed(2);
-      productContainer.appendChild(price);
-
-      var image = document.createElement("img");
-      image.src = produto.image;
-      image.alt = "Imagem do Produto";
-      productContainer.appendChild(image);
-
+      var productContainer = criarProdutoContainer(produto);
       productsDiv.appendChild(productContainer);
     });
   }
@@ -91,7 +61,42 @@ function pesquisar() {
 function redirecionarParaDetalhes(id) {
   var url = "detail.html?id=" + id;
   window.location.href = url;
+}
 
+function criarProdutoContainer(produto) {
+  var productContainer = document.createElement("div");
+  productContainer.classList.add("product-principal");
+  productContainer.dataset.productId = produto.id;
+
+  var title = document.createElement("h2");
+  var truncatedTitle = produto.title.length > 20 ? produto.title.slice(0, 18) + "..." : produto.title;
+  title.textContent = truncatedTitle;
+  productContainer.appendChild(title);
+
+  var description = document.createElement("h3");
+  var truncatedDescription = produto.description.length > 20 ? produto.description.slice(0, 24) + "..." : produto.description;
+  description.textContent = truncatedDescription;
+  productContainer.appendChild(description);
+
+  var serves = document.createElement("h5");
+  serves.textContent = "Serve " + produto.serves + " pessoas";
+  productContainer.appendChild(serves);
+
+  var price = document.createElement("h4");
+  price.textContent = "R$ " + produto.price.toFixed(2);
+  productContainer.appendChild(price);
+
+  var image = document.createElement("img");
+  image.src = produto.image;
+  image.alt = "Imagem do Produto";
+  productContainer.appendChild(image);
+
+  // Adiciona ouvinte de evento de clique para redirecionar para detalhes
+  productContainer.addEventListener("click", function() {
+    redirecionarParaDetalhes(this.dataset.productId);
+  });
+
+  return productContainer;
 }
 
 function exibirProdutos() {
@@ -126,32 +131,7 @@ function exibirProdutos() {
   productsDiv.appendChild(bebidasDiv);
 
   produtos.forEach(function(produto) {
-    var productContainer = document.createElement("div");
-    productContainer.classList.add("product-principal");
-    productContainer.dataset.productId = produto.id;
-
-    var title = document.createElement("h2");
-    var truncatedTitle = produto.title.length > 20 ? produto.title.slice(0, 18) + '' : produto.title;
-    title.textContent = truncatedTitle;
-    productContainer.appendChild(title);
-
-    var description = document.createElement("h3");
-    var truncatedDescription = produto.description.length > 20 ? produto.description.slice(0, 24) + '...' : produto.description;
-    description.textContent = truncatedDescription;
-    productContainer.appendChild(description);
-
-    var serves = document.createElement("h5");
-    serves.textContent = "Serve " + produto.serves + " pessoas";
-    productContainer.appendChild(serves);
-
-    var price = document.createElement("h4");
-    price.textContent = "R$ " + produto.price.toFixed(2);
-    productContainer.appendChild(price);
-
-    var image = document.createElement("img");
-    image.src = produto.image;
-    image.alt = "Imagem do Produto";
-    productContainer.appendChild(image);
+    var productContainer = criarProdutoContainer(produto);
 
     if (produto.category === "Pratos Principais") {
       principalDiv.appendChild(productContainer);
@@ -163,8 +143,6 @@ function exibirProdutos() {
   });
 }
 
-exibirProdutos();
-
-function goToCart(){
+function goToCart() {
   window.location.href = "cart.html";
 }

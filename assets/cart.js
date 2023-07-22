@@ -277,6 +277,8 @@ function finalizarCompra() {
 
   // Armazena o resumo do pedido no sessionStorage
   sessionStorage.setItem("resumoPedido", resumoPedido);
+  sessionStorage.setItem("total", total.toFixed(2));
+
 
   // Redireciona para a página finalizar.html
   window.location.href = "finalizar.html";
