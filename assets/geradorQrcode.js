@@ -7,11 +7,8 @@ function gerarQRCodePIX() {
 
   // URL da API
   const url = `https://gerarqrcodepix.com.br/api/v1?nome=${nome}&cidade=${cidade}&chave=${chavePix}&valor=${valor.toFixed(2)}&saida=qr`;
-  const url2 = `https://gerarqrcodepix.com.br/api/v1?nome=${nome}&cidade=${cidade}&chave=${chavePix}&valor=${valor.toFixed(2)}&saida=br`;
 
   console.log(url);
-  console.log(url2);
-
   // Faz a solicitação HTTP para a API usando o fetch
   fetch(url, {
     method: "GET",
@@ -36,38 +33,43 @@ function gerarQRCodePIX() {
     .catch(error => {
       console.error("Erro ao gerar o QR Code:", error);
     });
+}
 
-  // Faz a segunda solicitação HTTP para obter o "brcode"
-  fetch(url2, {
+function exibirConteudo() {
+  const nome = "Kelly Jaqueline Siqueira";
+  const cidade = "Sete Lagoas";
+  const chavePix = "kellyjsborges@gmail.com";
+  const valor = parseFloat(sessionStorage.getItem('total'));
+
+  const url = `https://gerarqrcodepix.com.br/api/v1?nome=${nome}&cidade=${cidade}&chave=${chavePix}&valor=${valor.toFixed(2)}&saida=br`;
+
+  // Faz a requisição HTTP usando fetch
+  fetch(url, {
     method: "GET",
     mode: "no-cors",
   })
-  .then(response => {
-    console.log(response);
-    return response.json(); // Converte a resposta para JSON
-  })
-  .then(data => {
-    const jsonString = JSON.stringify(data); // Converte o JSON em texto
+    .then(response => {
+      // Exibe a URL original da resposta no console
+      console.log("URL de resposta:", response.url);
 
-    console.log(jsonString); // Exibe a string JSON no console ou faça qualquer outra manipulação necessária
-
-    const brcode = data.brcode;
-
-    const textoDiv = document.getElementById("texto");
-    textoDiv.innerHTML = '';
-
-    const textoParagrafo = document.createElement("p");
-    textoParagrafo.textContent = brcode;
-
-    textoDiv.appendChild(textoParagrafo);
-
-    console.log(brcode);
-  })
-      // Obtém o valor do campo "brcode" da resposta JSON
- // Exibe o valor do "brcode" no console ou faça qualquer outra manipulação necessária
+      if (response.status === 0) {
+        // Tentar exibir o conteúdo retornado na resposta
+        response.text().then(data => {
+          console.log("Conteúdo da resposta:", data);
+        });
+      } else {
+        console.error("Erro ao gerar o QR Code:", response);
+      }
+    })
+    .catch(error => {
+      console.error("Erro ao gerar o QR Code:", error);
+    });
 }
+
+// Chama a função para exibir o conteúdo quando a página carregar
 
 // Adiciona um manipulador de eventos ao botão de id "gerar"
 document.getElementById("gerar").addEventListener("click", function () {
   gerarQRCodePIX();
+  exibirConteudo();
 });
