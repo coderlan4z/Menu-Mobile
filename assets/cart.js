@@ -275,7 +275,15 @@ function finalizarCompra() {
 
   resumoPedido += "Valor do pedido: R$" + total.toFixed(2) + "\n"; // Adiciona a linha do total ao resumo do pedido
 
+  function countDigitsWithDecimal(total) {
+    const totalString = total.toString();
+    return totalString.length;
+  }
+
+  
+
   // Armazena o resumo do pedido no sessionStorage
+  sessionStorage.setItem("casas", countDigitsWithDecimal(total));
   sessionStorage.setItem("resumoPedido", resumoPedido);
   sessionStorage.setItem("total", total.toFixed(2));
 

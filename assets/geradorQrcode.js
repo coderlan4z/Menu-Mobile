@@ -10,8 +10,9 @@ function crc16ccitt(pData) {
 }
 
 document.getElementById("gerar").addEventListener("click", function () {
+  const casas = sessionStorage.getItem('casas');
   const valor = parseFloat(sessionStorage.getItem('total'));
-  const qrc = `00020126450014BR.GOV.BCB.PIX0123kellyjsborges@gmail.com5204000053039865405${valor}5802BR5924Kelly Jaqueline Siqueira6011Sete Lagoas62070503***6304`;
+  const qrc = `00020126450014BR.GOV.BCB.PIX0123kellyjsborges@gmail.com520400005303986540${casas}${valor}5802BR5924Kelly Jaqueline Siqueira6011Sete Lagoas62070503***6304`;
 
   const crc = crc16ccitt(qrc).toString(16).toUpperCase();
   const resultado = qrc + crc;
