@@ -142,12 +142,10 @@ label{
         flex-direction: column;
         white-space: pre-wrap;
         word-break: break-all;
-}
-#text p{
-        font-size: 1rem;
+        font-size: .6rem;
         font-weight: 400;
         text-align: center;
-        color: rgba(0, 0, 0, 0.5);
+        color: black;
 }
 #mensagem-pagamento{
         color: rgba(0, 0, 0, 0.5);
