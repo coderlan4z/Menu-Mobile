@@ -1,75 +1,52 @@
-function gerarQRCodePIX() {
-  // Dados para a solicitação
-  const nome = "Kelly Jaqueline Siqueira";
-  const cidade = "Sete Lagoas";
-  const chavePix = "kellyjsborges@gmail.com";
-  const valor = parseFloat(sessionStorage.getItem('total'));
-
-  // URL da API
-  const url = `https://gerarqrcodepix.com.br/api/v1?nome=${nome}&cidade=${cidade}&chave=${chavePix}&valor=${valor.toFixed(2)}&saida=qr`;
-
-  console.log(url);
-  // Faz a solicitação HTTP para a API usando o fetch
-  fetch(url, {
-    method: "GET",
-    mode: "no-cors",
-  })
-    .then(response => {
-      if (response.status === 0) {
-        // Cria o elemento de imagem do QR Code
-        const qrCodeImage = document.createElement("img");
-        qrCodeImage.src = url;
-
-        // Remove qualquer QR Code anterior
-        const qrCodeDiv = document.getElementById("qrcode");
-        qrCodeDiv.innerHTML = '';
-
-        // Adiciona a imagem do QR Code na div com id "qrcode"
-        qrCodeDiv.appendChild(qrCodeImage);
-      } else {
-        console.error("Erro ao gerar o QR Code:", response);
-      }
-    })
-    .catch(error => {
-      console.error("Erro ao gerar o QR Code:", error);
-    });
+function crc16ccitt(pData) {
+  let wCrc = 0xffff;
+  for (let i = 0; i < pData.length; i++) {
+    wCrc ^= pData.charCodeAt(i) << 8;
+    for (let j = 0; j < 8; j++) {
+      wCrc = wCrc & 0x8000 ? (wCrc << 1) ^ 0x1021 : wCrc << 1;
+    }
+  }
+  return wCrc & 0xffff;
 }
 
-function exibirConteudo() {
-  const nome = "Kelly Jaqueline Siqueira";
-  const cidade = "Sete Lagoas";
-  const chavePix = "kellyjsborges@gmail.com";
-  const valor = parseFloat(sessionStorage.getItem('total'));
-
-  const url = `https://gerarqrcodepix.com.br/api/v1?nome=${nome}&cidade=${cidade}&chave=${chavePix}&valor=${valor.toFixed(2)}&saida=br`;
-
-  // Faz a requisição HTTP usando fetch
-  fetch(url, {
-    method: "GET",
-    mode: "no-cors",
-  })
-    .then(response => {
-      // Exibe a URL original da resposta no console
-      console.log("URL de resposta:", response.url);
-
-      if (response.status === 0) {
-        // Tentar exibir o conteúdo retornado na resposta
-        response.text().then(data => {
-          console.log("Conteúdo da resposta:", data);
-        });
-      } else {
-        console.error("Erro ao gerar o QR Code:", response);
-      }
-    })
-    .catch(error => {
-      console.error("Erro ao gerar o QR Code:", error);
-    });
-}
-
-// Chama a função para exibir o conteúdo quando a página carregar
-
-// Adiciona um manipulador de eventos ao botão de id "gerar"
 document.getElementById("gerar").addEventListener("click", function () {
-  gerarQRCodePIX();
-  exibirConteudo();
+  const valor = parseFloat(sessionStorage.getItem('total'));
+  const qrc = `00020126450014BR.GOV.BCB.PIX0123kellyjsborges@gmail.com5204000053039865405${valor}5802BR5924Kelly Jaqueline Siqueira6011Sete Lagoas62070503***6304`;
+
+  const crc = crc16ccitt(qrc).toString(16).toUpperCase();
+  const resultado = qrc + crc;
+
+  const resultadoElement = document.getElementById("texto");
+  resultadoElement.textContent = resultado;
+
+  console.log("Final string:", resultado);
+
+  const qrcode = new QRCode(0, 'H');
+    qrcode.addData(resultado);
+    qrcode.make();
+
+    // Get the QR code SVG markup
+    const svgMarkup = qrcode.createSvgTag({ scalable: true });
+
+    // Display the QR code on the page
+    const qrCodeElement = document.getElementById("qrcode");
+    qrCodeElement.innerHTML = svgMarkup;
+
+  // Adiciona um evento de clique ao parágrafo para copiar seu conteúdo
+  resultadoElement.addEventListener("click", function () {
+    copiarParaAreaDeTransferencia(resultado);
+  });
+
+  // Função para copiar o texto para a área de transferência
+  function copiarParaAreaDeTransferencia(texto) {
+    const areaDeTransferencia = document.createElement("textarea");
+    areaDeTransferencia.value = texto;
+    document.body.appendChild(areaDeTransferencia);
+    areaDeTransferencia.select();
+    document.execCommand("copy");
+    document.body.removeChild(areaDeTransferencia);
+    console.log("Texto copiado para a área de transferência:", texto);
+  }
+
+  // Aqui você pode prosseguir com o que deseja fazer com a string do QR code PIX, como enviar para a API de geração de QR code ou exibir em algum lugar no seu aplicativo.
 });

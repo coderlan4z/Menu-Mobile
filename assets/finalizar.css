@@ -129,7 +129,7 @@ label{
 #gerar:active{
         background-color: #dcd94a;
 }
-#qrcode img{
+#imageContainer img{
         width: 100%;
         margin: 0 auto;
         display: block;
@@ -140,11 +140,12 @@ label{
         width: 100%;
         display: flex;
         flex-direction: column;
+        white-space: pre-wrap;
+        word-break: break-all;
 }
 #text p{
         font-size: 1rem;
         font-weight: 400;
-        word-wrap: break-word;
         text-align: center;
         color: rgba(0, 0, 0, 0.5);
 }
