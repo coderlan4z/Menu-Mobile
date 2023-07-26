@@ -16,21 +16,11 @@ document.getElementById("gerar").addEventListener("click", function () {
   const crc = crc16ccitt(qrc).toString(16).toUpperCase();
   const resultado = qrc + crc;
 
+  document.getElementById("texto").innerHTML = "";
   const resultadoElement = document.getElementById("texto");
   resultadoElement.textContent = resultado;
 
   console.log("Final string:", resultado);
-
-  const qrcode = new QRCode(0, 'H');
-    qrcode.addData(resultado);
-    qrcode.make();
-
-    // Get the QR code SVG markup
-    const svgMarkup = qrcode.createSvgTag({ scalable: true });
-
-    // Display the QR code on the page
-    const qrCodeElement = document.getElementById("qrcode");
-    qrCodeElement.innerHTML = svgMarkup;
 
   // Adiciona um evento de clique ao parágrafo para copiar seu conteúdo
   resultadoElement.addEventListener("click", function () {
