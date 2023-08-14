@@ -38,7 +38,7 @@ function criarMensagemWhatsApp() {
     var mensagem = pedidoComInfo.replace(/\n/g, "%0A");
 
     // Abre o WhatsApp com a mensagem preenchida
-    var urlWhatsApp = "https://wa.me/5531996128966?text=" + mensagem;
+    var urlWhatsApp = "https://wa.me/5531987418717?text=" + mensagem;
     window.open(urlWhatsApp, "_blank");
   }
 }
