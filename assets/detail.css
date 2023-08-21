@@ -134,10 +134,11 @@ footer{
         bottom: 0;
         background-color: white;
         border-radius: 1rem 1rem 0 0;
-        width: 100%;
         box-shadow: 0px -4px 6px -1px rgba(0, 0, 0, 0.1);
         margin: auto;
+        width: 100%;
         display: flex;
+        justify-content: space-between;
 }
 @media screen and (min-width: 500px) {
         body{
@@ -151,11 +152,11 @@ footer{
                 width: 500px;
         }
         .add button{
-                max-width: 315px;
+                max-width: 300px;
                 margin: 1.3rem 1.3rem 1.3rem 1.1rem;
         }
         .quantidade{
-                margin: 1.3rem;
+                margin: 1.3rem 0 1.3rem 1.3rem;
         }
 }
      
