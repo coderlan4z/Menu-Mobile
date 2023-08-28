@@ -39,5 +39,18 @@ document.getElementById("gerar").addEventListener("click", function () {
     console.log("Texto copiado para a área de transferência:", texto);
   }
 
-  // Aqui você pode prosseguir com o que deseja fazer com a string do QR code PIX, como enviar para a API de geração de QR code ou exibir em algum lugar no seu aplicativo.
+  const comprovante = document.getElementById("comprovante");
+  document.createElement("p");
+  comprovante.textContent = "Lembre-se que para confirmar o pedido e necessário enviar o comprovante do pix e clicar no botão de 'Confirmar pagamento'.";
+
+  const qrcodeContainer = document.getElementById('qrcode');
+  qrcodeContainer.innerHTML = '';
+
+// Crie um novo QR Code
+const qrcode = new QRCode(qrcodeContainer, {
+  text: resultado,
+  width: 400,
+  height: 400,
+});
+
 });
