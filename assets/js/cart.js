@@ -232,7 +232,7 @@ function diminuirQuantidade(index) {
 }
 
 function goToHome(){
-  window.location.href = "index.html";
+  window.location.href = "home.html";
 }
 
 function quebrarTexto(texto, limite) {
