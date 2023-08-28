@@ -1,3 +1,51 @@
+function exibirProdutos() {
+  var productsDiv = document.querySelector(".products");
+  productsDiv.innerHTML = "";
+
+  var principalDiv = document.createElement("div");
+  principalDiv.classList.add("principal");
+
+  var principalTitle = document.createElement("h1");
+  principalTitle.textContent = "Pratos Principais";
+  principalDiv.appendChild(principalTitle);
+
+  productsDiv.appendChild(principalDiv);
+
+  var acompanhamentosDiv = document.createElement("div");
+  acompanhamentosDiv.classList.add("principal");
+
+  var acompanhamentosTitle = document.createElement("h1");
+  acompanhamentosTitle.textContent = "Acompanhamentos";
+  acompanhamentosDiv.appendChild(acompanhamentosTitle);
+
+  productsDiv.appendChild(acompanhamentosDiv);
+
+  var bebidasDiv = document.createElement("div");
+  bebidasDiv.classList.add("principal");
+
+  var bebidasTitle = document.createElement("h1");
+  bebidasTitle.textContent = "Bebidas";
+  bebidasDiv.appendChild(bebidasTitle);
+
+  productsDiv.appendChild(bebidasDiv);
+
+  produtos.forEach(function(produto) {
+    var productContainer = criarProdutoContainer(produto);
+
+    if (produto.category === "Pratos Principais") {
+      principalDiv.appendChild(productContainer);
+    } else if (produto.category === "Acompanhamentos") {
+      acompanhamentosDiv.appendChild(productContainer);
+    } else if (produto.category === "Bebidas") {
+      bebidasDiv.appendChild(productContainer);
+    }
+  });
+}
+
+function goToCart() {
+  window.location.href = "cart.html";
+}
+
 document.addEventListener("DOMContentLoaded", function() {
   var searchButton = document.getElementById("search-button");
   searchButton.addEventListener("click", function() {
@@ -17,9 +65,6 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   exibirProdutos();
-
-  var footer = document.querySelector("footer");
-  footer.style.display = "none";
 });
 
 function pesquisar() {
@@ -99,50 +144,3 @@ function criarProdutoContainer(produto) {
   return productContainer;
 }
 
-function exibirProdutos() {
-  var productsDiv = document.querySelector(".products");
-  productsDiv.innerHTML = "";
-
-  var principalDiv = document.createElement("div");
-  principalDiv.classList.add("principal");
-
-  var principalTitle = document.createElement("h1");
-  principalTitle.textContent = "Pratos Principais";
-  principalDiv.appendChild(principalTitle);
-
-  productsDiv.appendChild(principalDiv);
-
-  var acompanhamentosDiv = document.createElement("div");
-  acompanhamentosDiv.classList.add("principal");
-
-  var acompanhamentosTitle = document.createElement("h1");
-  acompanhamentosTitle.textContent = "Acompanhamentos";
-  acompanhamentosDiv.appendChild(acompanhamentosTitle);
-
-  productsDiv.appendChild(acompanhamentosDiv);
-
-  var bebidasDiv = document.createElement("div");
-  bebidasDiv.classList.add("principal");
-
-  var bebidasTitle = document.createElement("h1");
-  bebidasTitle.textContent = "Bebidas";
-  bebidasDiv.appendChild(bebidasTitle);
-
-  productsDiv.appendChild(bebidasDiv);
-
-  produtos.forEach(function(produto) {
-    var productContainer = criarProdutoContainer(produto);
-
-    if (produto.category === "Pratos Principais") {
-      principalDiv.appendChild(productContainer);
-    } else if (produto.category === "Acompanhamentos") {
-      acompanhamentosDiv.appendChild(productContainer);
-    } else if (produto.category === "Bebidas") {
-      bebidasDiv.appendChild(productContainer);
-    }
-  });
-}
-
-function goToCart() {
-  window.location.href = "cart.html";
-}
