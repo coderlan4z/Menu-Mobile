@@ -1,0 +1,183 @@
+body{
+        margin: 0;
+        padding: 0;
+        background-color: #fbfbfb;
+        overflow-x: hidden;
+}
+html{
+        background-color: white;
+}
+main{
+        margin : -2.5rem 1.2rem 0 1.2rem;
+        font-family: 'Poppins', sans-serif;
+        padding-bottom: 1rem;
+        z-index: 1;
+}
+header{
+        margin-top: -3.2rem;
+}
+.logo img{
+        width: 100%;
+}
+.cart button{
+        background-color: #f6f368;
+        padding: .7rem 1.05rem .8rem 1.05rem;
+        border-radius: 50%;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        font-size: 1.5rem;
+}
+.cart i{
+        color: rgb(0, 0, 0);
+}
+.cart{
+        position: relative;
+        float: right;
+        top: 4.2rem;
+        right: 1.2rem;
+        z-index: 1;
+}
+
+.cart button:active {
+        background-color: #dcd94a;
+}
+.sociais{
+        position: relative;
+        top: -5.8rem;
+        z-index: 1;
+        margin: 0 1.15rem;
+}
+.sociais a{
+        text-decoration: none;
+        margin: 0 .2rem;
+}
+.fa-instagram, .fa-whatsapp{
+        color: #f6f368;
+        border: 1px solid #f6f4683b;
+        padding: .6rem .75rem .55rem;
+        border-radius: 10%;
+        font-size: 1.1rem;
+}
+.fa-facebook{
+        color: #f6f368;
+        border: 1px solid #f6f4683b;
+        padding: .6rem .85rem .55rem ;
+        font-size: 1.1rem;
+        border-radius: 10%;
+}
+.search{
+        position: relative;
+        top: -4.6rem;
+        text-align: center;
+        background-color: #fbfbfb;
+        border-radius: 2.5rem ;
+        margin: 0 1.2rem;
+        border: 5px solid #f6f368;
+        padding: .5rem;
+        box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.2);
+}
+.search input, button{
+        padding: 5px;
+        border: none;
+        outline: none;
+        font-size: 1rem;        
+}
+.search button{
+        position: absolute;
+        background-color: #f6f368;
+        border-radius: 50%;
+        padding: .7rem .8rem;
+        align-self: end;
+        transition: transform 0.3s ease;
+        right: .3rem;
+        top: .3rem;
+}
+.search button.clicked {
+        transform: scale(1.15); 
+}
+.search button:active {
+        background-color: #dcd94a;
+}
+.search input{
+      background-color: transparent;
+      font-family: 'Poppins', sans-serif;
+      margin-left: .1rem;
+      width: 100%;
+}
+.search input::placeholder {
+        opacity: 0.5; 
+}
+ /* Products */
+
+h1{
+        font-weight: 700;
+        margin: 0 .8rem .6rem;
+        font-size: 1.3rem;
+}
+h2{
+        font-weight: 600;
+        margin: 0;
+        font-size: 1.1rem;
+}
+h3{
+        font-weight: 400;
+        margin: 0;
+        font-size: .9rem;
+        color: rgba(0, 0, 0, 0.8);
+}
+h4{
+        font-weight: 400;
+        margin: .5rem 0 0 0;
+        font-size: .9rem;
+}
+h5{
+        font-weight: 600;
+        margin: .2rem 0;
+        font-size: .8rem;
+        color: rgba(0, 0, 0, 0.8);
+}
+.products p{
+        text-align: center;
+        color: rgba(0, 0, 0, 0.8);
+}
+.product-principal {
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        border-radius: .5rem;
+        margin-bottom: 1rem;
+        padding: .5rem;
+        position: relative;
+        border: .1px solid rgba(0, 0, 0, 0.03);
+}
+.product-principal img{
+        width: 6rem;
+        border-radius: .5rem;
+        position: absolute;
+        top: .65rem;
+        right: .8rem;
+}
+/*footer copy*/
+footer{
+        background-color: #f6f468aa;
+        padding: .1rem;
+        text-align: center;
+        font-size: .6rem;
+        color: rgba(0, 0, 0, 0.8);
+        font-family: 'Poppins', sans-serif;
+}
+footer a{
+        text-decoration: none;
+        color: rgba(0, 0, 0, 0.8);
+}
+.no-results {
+        height: 100%;
+}
+      
+
+      
+      
+@media screen and (min-width: 500px) {
+        body{
+                max-width: 500px;
+                margin: auto;
+        }
+}
+        
