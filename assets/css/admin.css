@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fbfbfb;
+  overflow-x: hidden;
+  height: 100vh;
+  align-items: center;
+  position: relative;
+}
+
+html {
+  height: auto;
+  background-color: white;
+}
+
+main {
+  margin: 0 1.2rem;
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;
+  text-align: center;
+  display: flex;
+}
+button, input{
+  width: 100%;
+  box-sizing: border-box;
+}
+input{
+  padding:10px ;
+  margin-bottom: 10px;
+}
+button{
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #1e90ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* A classe loading centraliza verticalmente */
+.login {
+  padding: 40px;
+  width: 100%;
+}
+
+.loading h1 {
+  font-size: 1.5rem;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.5);
+  /* Animação de fade da esquerda para a direita */
+  animation: fadeRight 2s infinite;
+}
+
+@media screen and (min-width: 500px) {
+  body {
+    max-width: 500px;
+    margin: auto;
+  }
+}

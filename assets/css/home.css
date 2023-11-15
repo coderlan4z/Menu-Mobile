@@ -16,8 +16,13 @@ main{
 header{
         margin-top: -3.2rem;
 }
+.logo{
+        width: 100%;
+        background-color: black;
+}
 .logo img{
         width: 100%;
+        background-color: black;
 }
 .cart button{
         background-color: #f6f368;

@@ -1,0 +1,20 @@
+{
+  "name": "jurassic-pork-menu",
+  "version": "1.0.0",
+  "description": "backend",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lan4z/Jurassic-Pork-Menu.git"
+  },
+  "author": "Guilherme Lana",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lan4z/Jurassic-Pork-Menu/issues"
+  },
+  "homepage": "https://github.com/lan4z/Jurassic-Pork-Menu#readme"
+}

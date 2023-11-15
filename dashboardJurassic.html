@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="assets/css/dash.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500;600;700&display=swap"
+                rel="stylesheet">
+        <title>Menu Digital | Jurassic Pork BBQ</title>
+</head>
+
+<body>
+        <main>
+                <h1>Pedidos</h1>
+                <div id="pedidos-container"></div>
+        </main>
+        <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                        // Função para buscar os pedidos do servidor
+                        function buscarPedidos() {
+                                fetch('http://localhost:3000/buscar-pedidos', {
+                                        method: 'GET',
+                                        mode: 'cors', // Adiciona o modo CORS
+                                        headers: {
+                                                'Content-Type': 'application/json',
+                                        },
+                                })
+                                        .then(response => {
+                                                if (!response.ok) {
+                                                        throw new Error('Erro ao buscar pedidos. Código: ' + response.status);
+                                                }
+                                                return response.json();
+                                        })
+                                        .then(data => exibirPedidos(data))
+                                        .catch(error => console.error('Erro ao buscar pedidos:', error.message));
+                        }
+
+                        // Função para exibir os pedidos na página
+                        function exibirPedidos(pedidos) {
+                                const pedidosContainer = document.getElementById('pedidos-container');
+
+                                // Limpa qualquer conteúdo existente na div
+                                pedidosContainer.innerHTML = '';
+
+                                // Verifica se há pedidos para exibir
+                                if (!pedidos || pedidos.length === 0) {
+                                        pedidosContainer.innerHTML = '<p>Nenhum pedido disponível.</p>';
+                                        return;
+                                }
+
+                                // Itera sobre os pedidos e cria elementos HTML para cada um
+                                pedidos.forEach(pedido => {
+                                        const itemPedido = document.createElement('div');
+
+                                        // Verifica se as propriedades essenciais estão presentes
+                                        const nome = pedido.nome || 'Produto não especificado';
+                                        const valor = pedido.valor || 0;
+                                        const observacoes = pedido.observacoes || '';
+
+                                        itemPedido.innerHTML = `<p>${nome} - ${valor}</p>`;
+                                        if (observacoes) {
+                                                itemPedido.innerHTML += `<p>Observações: ${observacoes}</p>`;
+                                        }
+
+                                        pedidosContainer.appendChild(itemPedido);
+                                });
+                        }
+
+                        // Chama a função para buscar os pedidos quando a página carregar
+                        buscarPedidos();
+                });
+
+        </script>
+</body>
+
+</html>

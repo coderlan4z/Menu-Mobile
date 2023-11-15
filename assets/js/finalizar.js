@@ -1,9 +1,3 @@
-function goToCart() {
-  window.location.href = "cart.html";
-}
-
-
-
 function criarMensagemWhatsApp() {
   var nome = document.getElementById('nome').value;
   var contato = document.getElementById('phone').value;
@@ -21,7 +15,6 @@ function criarMensagemWhatsApp() {
     return; // Retorna e interrompe a execução da função
   }
 
-
   mensagemErro.textContent = ""; // Limpa a mensagem de erro
 
   if (resumoPedido) {
@@ -30,9 +23,8 @@ function criarMensagemWhatsApp() {
     var enderecoFormatado = endereco + "\n--------------------------------------\n\n";
     var pedidoComInfo = meuPedido + "Nome: " + nome + "\n" + contatoPedido + "Endereço: " + enderecoFormatado + resumoPedido;
 
-
-    // Armazena o resumo do pedido atualizado no sessionStorage
-    sessionStorage.setItem("resumoPedido", pedidoComInfo);
+    // Envia os itens do pedido para o servidor
+    enviarPedidoParaServidor(nome, contato, endereco, resumoPedido);
 
     // Cria a mensagem para enviar pelo WhatsApp
     var mensagem = pedidoComInfo.replace(/\n/g, "%0A");
@@ -43,14 +35,21 @@ function criarMensagemWhatsApp() {
   }
 }
 
-const tel = document.getElementById('phone') // Seletor do campo de telefone
-
-tel.addEventListener('keypress', (e) => mascaraTelefone(e.target.value)) // Dispara quando digitado no campo
-tel.addEventListener('change', (e) => mascaraTelefone(e.target.value)) // Dispara quando autocompletado o campo
-
-const mascaraTelefone = (valor) => {
-  valor = valor.replace(/\D/g, "")
-  valor = valor.replace(/^(\d{2})(\d)/g, "($1) $2")
-  valor = valor.replace(/(\d)(\d{4})$/, "$1-$2")
-  tel.value = valor // Insere o(s) valor(es) no campo
+function enviarPedidoParaServidor(nome, contato, endereco, resumoPedido) {
+  // Faz uma requisição POST para o servidor
+  fetch('http://localhost:3000/salvar-pedido', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      nome: nome,
+      contato: contato,
+      endereco: endereco,
+      resumoPedido: resumoPedido,
+    }),
+  })
+    .then(response => response.json())
+    .then(data => console.log('Pedido enviado para o servidor:', data))
+    .catch(error => console.error('Erro ao enviar pedido para o servidor:', error));
 }

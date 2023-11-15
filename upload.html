@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/favicon_io/site.webmanifest">
+    <script src="https://kit.fontawesome.com/a33a8d6d19.js" crossorigin="anonymous"></script>
+    <title>Upload de Imagem | Jurassic Pork BBQ</title>
+</head>
+<body>
+    <form id="upload-form" enctype="multipart/form-data">
+        <input type="file" id="image-input" name="imagem" accept="image/*">
+        <input type="text" id="outras-informacoes" name="outras-informacoes" placeholder="Outras informações">
+        <input type="submit" value="Enviar Imagem">
+    </form>
+    <script>
+        document.getElementById('upload-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = new FormData();
+            formData.append('imagem', document.getElementById('image-input').files[0]);
+            formData.append('outras-informacoes', document.getElementById('outras-informacoes').value);
+
+            // Enviar dados para o backend usando AJAX:
+
+            fetch('/products', {
+                method: 'POST',
+                body: formData
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+            });
+        });
+    </script>
+</body>
+</html>

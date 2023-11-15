@@ -29,7 +29,7 @@ function exibirProdutos() {
 
   productsDiv.appendChild(bebidasDiv);
 
-  produtos.forEach(function(produto) {
+  produtos.forEach(function (produto) {
     var productContainer = criarProdutoContainer(produto);
 
     if (produto.category === "Pratos Principais") {
@@ -41,16 +41,15 @@ function exibirProdutos() {
     }
   });
 }
-
 function goToCart() {
   window.location.href = "cart.html";
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   var searchButton = document.getElementById("search-button");
-  searchButton.addEventListener("click", function() {
+  searchButton.addEventListener("click", function () {
     this.classList.add("clicked");
-    setTimeout(function() {
+    setTimeout(function () {
       searchButton.classList.remove("clicked");
     }, 50);
 
@@ -58,10 +57,8 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   var siteSearch = document.getElementById("site-search");
-  siteSearch.addEventListener("input", function() {
-    if (this.value.trim() === "") {
-      exibirProdutos();
-    }
+  siteSearch.addEventListener("input", function () {
+    pesquisarLive(); // Call the live search function
   });
 
   exibirProdutos();
@@ -77,7 +74,7 @@ function pesquisar() {
   var productsDiv = document.querySelector(".products");
   productsDiv.innerHTML = "";
 
-  var filteredProdutos = produtos.filter(function(produto) {
+  var filteredProdutos = produtos.filter(function (produto) {
     var title = produto.title.toLowerCase();
     var description = produto.description.toLowerCase();
 
@@ -93,7 +90,43 @@ function pesquisar() {
   } else {
     productsDiv.classList.remove("no-results");
 
-    filteredProdutos.forEach(function(produto) {
+    filteredProdutos.forEach(function (produto) {
+      var productContainer = criarProdutoContainer(produto);
+      productsDiv.appendChild(productContainer);
+    });
+  }
+
+  var footer = document.querySelector("footer");
+  footer.style.display = "none";
+}
+
+function pesquisarLive() {
+  var searchTerm = document.getElementById("site-search").value.toLowerCase();
+  if (searchTerm.trim() === "") {
+    exibirProdutos();
+    return;
+  }
+
+  var productsDiv = document.querySelector(".products");
+  productsDiv.innerHTML = "";
+
+  var filteredProdutos = produtos.filter(function (produto) {
+    var title = produto.title.toLowerCase();
+    var description = produto.description.toLowerCase();
+
+    return title.includes(searchTerm) || description.includes(searchTerm);
+  });
+
+  if (filteredProdutos.length === 0) {
+    productsDiv.classList.add("no-results");
+
+    var noResultsMsg = document.createElement("p");
+    noResultsMsg.textContent = "Nenhum produto encontrado.";
+    productsDiv.appendChild(noResultsMsg);
+  } else {
+    productsDiv.classList.remove("no-results");
+
+    filteredProdutos.forEach(function (produto) {
       var productContainer = criarProdutoContainer(produto);
       productsDiv.appendChild(productContainer);
     });
@@ -137,7 +170,7 @@ function criarProdutoContainer(produto) {
   productContainer.appendChild(image);
 
   // Adiciona ouvinte de evento de clique para redirecionar para detalhes
-  productContainer.addEventListener("click", function() {
+  productContainer.addEventListener("click", function () {
     redirecionarParaDetalhes(this.dataset.productId);
   });
 

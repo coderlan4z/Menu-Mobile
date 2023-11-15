@@ -1,0 +1,31 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #fbfbfb;
+    overflow-x: hidden;
+    height: 100vh;
+    align-items: center;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+}
+  
+  html {
+    height: auto;
+    background-color: white;
+  }
+  
+  main {
+    margin: 0 1.2rem;
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    text-align: center;
+    text-align: center;
+  }
+
+  
+  @media screen and (min-width: 500px) {
+    body {
+      max-width: 500px;
+      margin: auto;
+    }
+  }
