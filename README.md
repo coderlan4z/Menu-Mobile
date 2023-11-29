@@ -2,18 +2,6 @@
 
 Este é um menu mobile básico desenvolvido utilizando HTML, CSS e JavaScript Vanilla. Não requer um backend e foi criado como uma versão inicial. Uma versão aprimorada utilizando React está em construção.
 
-## Conteúdo
-
-- [Demonstração](#demonstração)
-- [Instruções de Uso](#instruções-de-uso)
-- [Personalização](#personalização)
-- [Contribuição](#contribuição)
-- [Direitos de Utilização](#direitos-de-utilização)
-
-## Demonstração
-
-Inclua uma captura de tela ou GIF animado que destaque o funcionamento do seu menu mobile.
-
 ## Instruções de Uso
 
 1. Faça o download ou clone este repositório.
